@@ -2,7 +2,7 @@ class HangpersonGame
 
   # add the necessary class methods, attributes, etc. here
   # to make the tests in spec/hangperson_game_spec.rb pass.
-  #Wyatt still thinks that he deleted this comment. What he doesnt know is that I retyped it. :^)
+  # 
   # Get a word from remote "random word" service
   
 
