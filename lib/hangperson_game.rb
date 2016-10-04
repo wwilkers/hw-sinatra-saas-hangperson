@@ -2,12 +2,9 @@ class HangpersonGame
 
   # add the necessary class methods, attributes, etc. here
   # to make the tests in spec/hangperson_game_spec.rb pass.
-  # 
   # Get a word from remote "random word" service
   
 
-  # def initialize()
-  # end
   attr_accessor :word
   attr_accessor :guesses
   attr_accessor :wrong_guesses
@@ -16,12 +13,9 @@ class HangpersonGame
     @guesses = ''
     @wrong_guesses = ''
     
-   #until mystryword.length = word.length do
-    #  mystryword << '-'
-   # end
    
   end
-
+#generate random word
   def self.get_random_word
     require 'uri'
     require 'net/http'
@@ -32,7 +26,7 @@ def guess(letter)
   raise ArgumentError if letter.nil?
   raise ArgumentError if letter.empty?
   raise ArgumentError if !letter.match(/[a-zA-Z]/)
- 
+ #is the letter in the word?
     letter.downcase!
     if (@guesses.include? letter) || (@wrong_guesses.include? letter)
       return false
@@ -44,7 +38,7 @@ def guess(letter)
       end
     end
   end
-
+#shows word to be guessed as letters hidden as a '-' until they are guessed
   def word_with_guesses
     mystryword = ''
     @word.split('').each do |letter|
@@ -56,7 +50,7 @@ def guess(letter)
     end
     return mystryword
   end
-  
+  #checks if win or loss returns a status
   def check_win_or_lose
     if (self.word_with_guesses == @word)
       return :win
